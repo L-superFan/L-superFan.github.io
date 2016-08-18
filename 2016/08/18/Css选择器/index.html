@@ -15,16 +15,28 @@
     <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
   
 
-  <meta name="description">
+  <meta name="description" content="css选择器分为十类
+####标签选择器：p ｜ 以文档对象类型的元素作为选择器，如p、div、span 
+####id选择器：#id
+####类选择器： .classname
+####子选择器：e1 &amp;gt; e2 ｜现在所有作为e1子对象的e2元素对象 ， 可用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Css选择器">
 <meta property="og:url" content="http://yoursite.com/2016/08/18/Css选择器/index.html">
 <meta property="og:site_name" content="superFan的github博客">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-08-18T03:15:17.000Z">
+<meta property="og:description" content="css选择器分为十类
+####标签选择器：p ｜ 以文档对象类型的元素作为选择器，如p、div、span 
+####id选择器：#id
+####类选择器： .classname
+####子选择器：e1 &amp;gt; e2 ｜现在所有作为e1子对象的e2元素对象 ， 可用">
+<meta property="og:updated_time" content="2016-08-18T03:22:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Css选择器">
-<meta name="twitter:description">
+<meta name="twitter:description" content="css选择器分为十类
+####标签选择器：p ｜ 以文档对象类型的元素作为选择器，如p、div、span 
+####id选择器：#id
+####类选择器： .classname
+####子选择器：e1 &amp;gt; e2 ｜现在所有作为e1子对象的e2元素对象 ， 可用">
 
   
 
@@ -182,7 +194,37 @@
 
   <div class="article-content">
     
-      
+      <blockquote>
+<p>css选择器分为十类</p>
+<p>####标签选择器：p ｜ 以文档对象类型的元素作为选择器，如p、div、span </p>
+<p>####id选择器：#id</p>
+<p>####类选择器： .classname</p>
+<p>####子选择器：e1 &gt; e2 ｜现在所有作为e1子对象的e2元素对象 ，<div><p><span></span></p></div> 可用                                                                                                            div&gt;p，不能用 div &gt; span</p>
+<p>####相邻选择器：e1+e2 ｜选择紧跟在元素对象e1之后的所有e2元素对象，<div><p></p></div></p><p></p>可用                                                                                                                    div+p选中后一个p<p></p>
+<p>####属性选择器：e1[attr]  ｜ 选择具有attr属性的e1对象，</p><p id="a"></p><p></p> 可用p[id]选中第一个p<p></p>
+<p>####包含选择器：e1 e2 ｜ 选择所有被e1包含的e2元素对象，<div><p><span></span></p></div> 可用div                                                                                                     span选择span</p>
+<p>####分组选择器：e1,e2,e3 ｜将定义了具有相同样式的多个选择器合并为一个样式。</p>
+<p>####通用选择器：*</p>
+<p>####伪类、伪对象选择器： －:focus  ｜定义对象在成为输入焦点时的样式</p>
+</blockquote>
+<pre><code>－:first-child ｜定义对象的第一个子对象的样式
+
+－:after ｜与content属性一起使用，定义在对象后的内容
+
+－:before  ｜与content属性一起使用，定义在对象前的内容
+
+－:first-letter ｜定义对象内第一个字符的样式
+
+－:first-line ｜定义对象内第一行的样式
+
+－:link ｜定义超链接的默认样式
+
+－:visited ｜定义访问过的样式
+
+－:hover ｜定义经过的样式
+
+－:active ｜定义鼠标按下的样式
+</code></pre>
     
   </div>
 </article>
