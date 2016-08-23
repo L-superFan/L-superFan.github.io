@@ -7,30 +7,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>hexo的配置和发布 | superFan的github博客</title>
+  <title>ios输入法的keyup事件失效的解决方法 | Kylin</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="forsigner,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript" />
+    <meta name="keywords" content="前端,事件,原生," />
   
 
-  <meta name="description" content="这是写的第一篇git博客，对于个人博客的搭建在网上找了很多资料，走了几步弯路，最后还是折腾好了，发第一篇表示下感慨。顺便整理了一下hexo操作博客的一些命令。
-Hexo 安装：npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化
-Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #新建文章hexo">
+  <meta name="description" content="如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以改用原生的oninput事件,chrome等浏览器可以这样处理1234var this_obj = document.getelementbyid(x);obj.oninput = function()&amp;#123;    //事件内容&amp;#125;
+如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo的配置和发布">
-<meta property="og:url" content="http://yoursite.com/2016/04/18/hexo的配置和发布/index.html">
-<meta property="og:site_name" content="superFan的github博客">
-<meta property="og:description" content="这是写的第一篇git博客，对于个人博客的搭建在网上找了很多资料，走了几步弯路，最后还是折腾好了，发第一篇表示下感慨。顺便整理了一下hexo操作博客的一些命令。
-Hexo 安装：npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化
-Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #新建文章hexo">
-<meta property="og:updated_time" content="2016-08-18T02:25:31.000Z">
+<meta property="og:title" content="ios输入法的keyup事件失效的解决方法">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/oninput/index.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:description" content="如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以改用原生的oninput事件,chrome等浏览器可以这样处理1234var this_obj = document.getelementbyid(x);obj.oninput = function()&amp;#123;    //事件内容&amp;#125;
+如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以">
+<meta property="og:image" content="http://7xrqm7.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720160310225153.png">
+<meta property="og:updated_time" content="2016-07-03T11:25:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo的配置和发布">
-<meta name="twitter:description" content="这是写的第一篇git博客，对于个人博客的搭建在网上找了很多资料，走了几步弯路，最后还是折腾好了，发第一篇表示下感慨。顺便整理了一下hexo操作博客的一些命令。
-Hexo 安装：npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化
-Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #新建文章hexo">
+<meta name="twitter:title" content="ios输入法的keyup事件失效的解决方法">
+<meta name="twitter:description" content="如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以改用原生的oninput事件,chrome等浏览器可以这样处理1234var this_obj = document.getelementbyid(x);obj.oninput = function()&amp;#123;    //事件内容&amp;#125;
+如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以">
+<meta name="twitter:image" content="http://7xrqm7.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720160310225153.png">
 
   
 
@@ -156,30 +155,35 @@ Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #�
 
 
 <div class="content content-post CENTER">
-   <article id="post-hexo的配置和发布" class="article article-type-post" itemprop="blogPost">
+   <article id="post-oninput" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">hexo的配置和发布</h1>
+    <h1 class="post-title">ios输入法的keyup事件失效的解决方法</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.04.18</span>
+        <span>2016.03.11</span>
       </span>
 
       
         <span class="article-author">
           <i class="icon-user"></i>
-          <span>L-superFan</span>
+          <span>Kylin</span>
         </span>
       
 
       
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </span>
+
 
 
       
         <span>
           <i class="icon-comment"></i>
-          <a href="https://github.com/L-superFan/2016/04/18/hexo的配置和发布/#disqus_thread"></a>
+          <a href="ruolinxue.github.io/2016/03/11/oninput/#disqus_thread"></a>
         </span>
       
 
@@ -188,13 +192,8 @@ Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #�
 
   <div class="article-content">
     
-      <p>这是写的第一篇git博客，对于个人博客的搭建在网上找了很多资料，走了几步弯路，最后还是折腾好了，发第一篇表示下感慨。<br>顺便整理了一下hexo操作博客的一些命令。</p>
-<p>Hexo 安装：<br>npm install hexo -g #安装<br>npm update hexo -g #升级<br>hexo init #初始化</p>
-<p>Hexo 简写命令：<br>hexo n “我的博客” == hexo new “我的博客” #新建文章<br>hexo p == hexo publish<br>hexo g == hexo generate#生成<br>hexo s == hexo server #启动服务预览<br>hexo d == hexo deploy#部署</p>
-<p>服务器<br>hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。<br>hexo server -s #静态模式<br>hexo server -p 5000 #更改端口<br>hexo server -i 192.168.1.1 #自定义 IP</p>
-<p>hexo clean #清除缓存 网页正常情况下可以忽略此条命令<br>hexo g #生成静态网页<br>hexo d #开始部署</p>
-<p>监视文件变动<br>hexo generate #使用 Hexo 生成静态文件快速而且简单<br>hexo generate –watch #监视文件变动</p>
-<p>完成后部署<br>两个命令的作用是相同的<br>hexo generate –deploy<br>hexo deploy –generate</p>
+      <p>如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以改用原生的oninput事件,chrome等浏览器可以这样处理<br><img src="http://7xrqm7.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720160310225153.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var this_obj = document.getelementbyid(x);</div><div class="line">obj.oninput = function()&#123;</div><div class="line">    //事件内容</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如下图所示,若果直接点击红框部分输入文字的话将不触发keyup事件，这时可以改用原生的oninput事件,chrome等浏览器可以这样处理</p>
 
     
   </div>
@@ -331,9 +330,9 @@ Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #�
   </section>
 
   <script>
-    var disqus_shortname = 'L-superFan';
+    var disqus_shortname = 'forsigner';
     
-    var disqus_url = 'http://yoursite.com/2016/04/18/hexo的配置和发布/';
+    var disqus_url = 'http://yoursite.com/2016/03/11/oninput/';
     
     (function(){
       var dsq = document.createElement('script');
@@ -344,7 +343,7 @@ Hexo 简写命令：hexo n “我的博客” == hexo new “我的博客” #�
     })();
   </script>
 
-  <script id="dsq-count-scr" src="//L-superFan.disqus.com/count.js" async></script>
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
 
 
 
