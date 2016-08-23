@@ -7,27 +7,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>img的onload与complete | superFan的github博客</title>
+  <title>半色调二维码 | superFan的github博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="前端,图片加载," />
+    <meta name="keywords" content="二维码,图形图像," />
   
 
-  <meta name="description" content="今天遇到了一个奇怪的bug需要将图片裁剪至合适的大小，然后我这样一个方法12345var x = 65;if(width&amp;gt;height)    $(this).css(&amp;quot;height&amp;quot;,x);else    $(this).css(&amp;quot;width&amp;quot;,x);
-由于各种原因&amp;lt;img&amp;gt;元素是通过字符串在js里面拼接出来的,上面那个方法用在appen">
+  <meta name="description" content="#半色调二维码
+##摘要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="img的onload与complete">
-<meta property="og:url" content="http://yoursite.com/2016/03/09/img-load/index.html">
+<meta property="og:title" content="半色调二维码">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/halfone-qr-code/index.html">
 <meta property="og:site_name" content="superFan的github博客">
-<meta property="og:description" content="今天遇到了一个奇怪的bug需要将图片裁剪至合适的大小，然后我这样一个方法12345var x = 65;if(width&amp;gt;height)    $(this).css(&amp;quot;height&amp;quot;,x);else    $(this).css(&amp;quot;width&amp;quot;,x);
-由于各种原因&amp;lt;img&amp;gt;元素是通过字符串在js里面拼接出来的,上面那个方法用在appen">
-<meta property="og:updated_time" content="2016-07-03T11:25:39.000Z">
+<meta property="og:description" content="#半色调二维码
+##摘要">
+<meta property="og:updated_time" content="2016-07-05T03:05:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="img的onload与complete">
-<meta name="twitter:description" content="今天遇到了一个奇怪的bug需要将图片裁剪至合适的大小，然后我这样一个方法12345var x = 65;if(width&amp;gt;height)    $(this).css(&amp;quot;height&amp;quot;,x);else    $(this).css(&amp;quot;width&amp;quot;,x);
-由于各种原因&amp;lt;img&amp;gt;元素是通过字符串在js里面拼接出来的,上面那个方法用在appen">
+<meta name="twitter:title" content="半色调二维码">
+<meta name="twitter:description" content="#半色调二维码
+##摘要">
 
   
 
@@ -153,14 +153,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-img-load" class="article article-type-post" itemprop="blogPost">
+   <article id="post-halfone-qr-code" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">img的onload与complete</h1>
+    <h1 class="post-title">半色调二维码</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.03.09</span>
+        <span>2016.07.05</span>
       </span>
 
       
@@ -173,7 +173,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/前端/">前端</a>
+    <a class="article-category-link" href="/categories/图形图像/">图形图像</a>
   </span>
 
 
@@ -181,7 +181,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="ruolinxue.github.io/2016/03/09/img-load/#disqus_thread"></a>
+          <a href="ruolinxue.github.io/2016/07/05/halfone-qr-code/#disqus_thread"></a>
         </span>
       
 
@@ -190,13 +190,8 @@
 
   <div class="article-content">
     
-      <p>今天遇到了一个奇怪的bug<br>需要将图片裁剪至合适的大小，然后我这样一个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var x = 65;</div><div class="line">if(width&gt;height)</div><div class="line">    $(this).css(&quot;height&quot;,x);</div><div class="line">else</div><div class="line">    $(this).css(&quot;width&quot;,x);</div></pre></td></tr></table></figure></p>
-<p>由于各种原因<code>&lt;img&gt;</code>元素是通过字符串在js里面拼接出来的,上面那个方法用在append到界面上之后<br>刚做完的时候貌似没有问题,但是多刷新几次之后,神奇的事情发生了,这个方法居然时灵时不灵！</p>
-<p>后来通过研究发现,这个方法应该在图片加载完之后调用。<br>下面是改良之后的方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">(function ($) &#123;</div><div class="line">    function autoSize(obj, w, h, is_cut) &#123; //is=true 不移位</div><div class="line">        var oIMG = new Image();</div><div class="line">        oIMG.onload = function () &#123;</div><div class="line">            var oW = this.width;</div><div class="line">            var oH = this.height;</div><div class="line">            if (is_cut &amp;&amp; w == h) &#123;</div><div class="line">                if (oW &gt; oH) &#123;</div><div class="line">                    obj.style.height = w + &apos;px&apos;;</div><div class="line">                &#125;</div><div class="line">                else &#123;</div><div class="line">                    obj.style.width = w + &apos;px&apos;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        oIMG.src = obj.src;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    $.fn.autoSize = function (width, height, is_cut) &#123;</div><div class="line">        this.each(function (i) &#123;</div><div class="line">            $(this).load(function () &#123;</div><div class="line">                return autoSize(this, width, height, is_move, is_cut);</div><div class="line">            &#125;);</div><div class="line">        &#125;);</div><div class="line">        return this;</div><div class="line">    &#125;;</div><div class="line">&#125;)(jQuery);</div></pre></td></tr></table></figure>
-<p>定义了图片的onload事件,在图片加载完之后执行。</p>
-<p>这里需要注意一个细节<br>不要把<code>oIMG.src=obj.src;</code>这一句紧跟在<code>var oIMG = new Image();</code>之后。</p>
-<p>除了这个方法之外,还可以使用图片的complete 属性，如用以下方法获取图片的尺寸<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var imgLoad = function (url) &#123;</div><div class="line">    var img = new Image();</div><div class="line">    img.src = url;</div><div class="line">    if (img.complete) &#123;</div><div class="line">        callback(img.width, img.height);</div><div class="line">    &#125; else &#123;</div><div class="line">        img.onload = function () &#123;</div><div class="line">            callback(img.width, img.height);</div><div class="line">            img.onload = null;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+      <p>#半色调二维码</p>
+<p>##摘要</p>
 
     
   </div>
@@ -335,7 +330,7 @@
   <script>
     var disqus_shortname = 'forsigner';
     
-    var disqus_url = 'http://yoursite.com/2016/03/09/img-load/';
+    var disqus_url = 'http://yoursite.com/2016/07/05/halfone-qr-code/';
     
     (function(){
       var dsq = document.createElement('script');
