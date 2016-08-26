@@ -7,27 +7,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>localstorage存取json | superFan的github博客</title>
+  <title>js获取地址栏参数 | superFan的github博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="javascript,json,前端," />
+    <meta name="keywords" content="javascript,前端," />
   
 
-  <meta name="description" content="本篇简单介绍如何从localstorage中存取json数据。将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串
-123456789101112var students = &amp;#123;		liyang: &amp;#123;			name: &amp;quot;liyang&amp;quot;,			age: 17		&amp;#125;,		lilei: &amp;#123;			na">
+  <meta name="description" content="本篇简单介绍如何从地址栏获取参数方法如下：
+12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot;,&amp;quot;i&amp;quot;);	var r = window.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="localstorage存取json">
-<meta property="og:url" content="http://yoursite.com/2016/06/20/localstorage/index.html">
+<meta property="og:title" content="js获取地址栏参数">
+<meta property="og:url" content="http://yoursite.com/2015/09/20/getUrlVal/index.html">
 <meta property="og:site_name" content="superFan的github博客">
-<meta property="og:description" content="本篇简单介绍如何从localstorage中存取json数据。将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串
-123456789101112var students = &amp;#123;		liyang: &amp;#123;			name: &amp;quot;liyang&amp;quot;,			age: 17		&amp;#125;,		lilei: &amp;#123;			na">
-<meta property="og:updated_time" content="2016-08-26T02:57:11.000Z">
+<meta property="og:description" content="本篇简单介绍如何从地址栏获取参数方法如下：
+12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot;,&amp;quot;i&amp;quot;);	var r = window.">
+<meta property="og:updated_time" content="2016-08-26T03:50:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="localstorage存取json">
-<meta name="twitter:description" content="本篇简单介绍如何从localstorage中存取json数据。将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串
-123456789101112var students = &amp;#123;		liyang: &amp;#123;			name: &amp;quot;liyang&amp;quot;,			age: 17		&amp;#125;,		lilei: &amp;#123;			na">
+<meta name="twitter:title" content="js获取地址栏参数">
+<meta name="twitter:description" content="本篇简单介绍如何从地址栏获取参数方法如下：
+12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot;,&amp;quot;i&amp;quot;);	var r = window.">
 
   
 
@@ -153,14 +153,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-localstorage" class="article article-type-post" itemprop="blogPost">
+   <article id="post-getUrlVal" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">localstorage存取json</h1>
+    <h1 class="post-title">js获取地址栏参数</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.06.20</span>
+        <span>2015.09.20</span>
       </span>
 
       
@@ -173,7 +173,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/前端常见问题/">前端常见问题</a>
   </span>
 
 
@@ -181,7 +181,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="github.com/L-superFan/2016/06/20/localstorage/#disqus_thread"></a>
+          <a href="github.com/L-superFan/2015/09/20/getUrlVal/#disqus_thread"></a>
         </span>
       
 
@@ -190,10 +190,10 @@
 
   <div class="article-content">
     
-      <p>本篇简单介绍如何从localstorage中存取json数据。<br>将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var students = &#123;</div><div class="line">		liyang: &#123;</div><div class="line">			name: &quot;liyang&quot;,</div><div class="line">			age: 17</div><div class="line">		&#125;,</div><div class="line">		lilei: &#123;</div><div class="line">			name: &quot;lilei&quot;,</div><div class="line">			age: 18</div><div class="line">		&#125;</div><div class="line">	&#125; //要存储的JSON对象   </div><div class="line">students = JSON.stringify(students);//将JSON对象转化成字符串  </div><div class="line">localStorage.setItem(&quot;students&quot;,students);//用localStorage保存转化好的的字符串</div></pre></td></tr></table></figure>
-<p>从localstorage中获取数据字符串，使用JSON.parse将其转化成json</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var students = localStorage.getItem(&quot;students&quot;); //取回students变量</div><div class="line">students = JSON.parse(students);//把字符串转换成JSON对象</div></pre></td></tr></table></figure>
+      <p>本篇简单介绍如何从地址栏获取参数<br>方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//获取地址栏参数的值，支持中文</div><div class="line">function GetQueryString(name) &#123;</div><div class="line">	var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;,&quot;i&quot;);</div><div class="line">	var r = window.location.search.substr(1).match(reg);</div><div class="line">	if (r != null)</div><div class="line">		return decodeURI(decodeURI(r[2]));</div><div class="line">	return null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;,&quot;i&quot;)</div></pre></td></tr></table></figure></p>
+<p>使用了正则表达式，”(^|&amp;)” 匹配开头或&amp;字符开头，([^&amp;]*)(&amp;|$)则为匹配内容包含&amp;且以&amp;结尾的内容，&amp;可以不存在，i表示执行对大小写不敏感的匹配。<br>若url参数为a=1&amp;b=2，执行GetQueryString(‘a’)时，正则匹配后r为一个数组[‘a=1&amp;’,’’,’1’,’&amp;’]<br>decodeURI()可以对encodeURI编码过的字符解码，两次解码是为了支持中文<br>获取参数方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var type = GetQueryString(&quot;type&quot;); //取回参数名为type的值</div></pre></td></tr></table></figure></p>
 
     
   </div>
@@ -332,7 +332,7 @@
   <script>
     var disqus_shortname = 'forsigner';
     
-    var disqus_url = 'http://yoursite.com/2016/06/20/localstorage/';
+    var disqus_url = 'http://yoursite.com/2015/09/20/getUrlVal/';
     
     (function(){
       var dsq = document.createElement('script');
