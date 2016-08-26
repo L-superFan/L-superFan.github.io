@@ -15,19 +15,22 @@
     <meta name="keywords" content="javascript,前端," />
   
 
-  <meta name="description" content="本篇简单介绍如何从地址栏获取参数方法如下：
-12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot;,&amp;quot;i&amp;quot;);	var r = window.">
+  <meta name="description" content="本篇简单介绍如何从地址栏获取参数传中文时：1encodeURI(encodeURI(name))
+方法如下：
+12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js获取地址栏参数">
 <meta property="og:url" content="http://yoursite.com/2015/09/20/getUrlVal/index.html">
 <meta property="og:site_name" content="superFan的github博客">
-<meta property="og:description" content="本篇简单介绍如何从地址栏获取参数方法如下：
-12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot;,&amp;quot;i&amp;quot;);	var r = window.">
-<meta property="og:updated_time" content="2016-08-26T03:50:25.000Z">
+<meta property="og:description" content="本篇简单介绍如何从地址栏获取参数传中文时：1encodeURI(encodeURI(name))
+方法如下：
+12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot">
+<meta property="og:updated_time" content="2016-08-26T04:40:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js获取地址栏参数">
-<meta name="twitter:description" content="本篇简单介绍如何从地址栏获取参数方法如下：
-12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot;,&amp;quot;i&amp;quot;);	var r = window.">
+<meta name="twitter:description" content="本篇简单介绍如何从地址栏获取参数传中文时：1encodeURI(encodeURI(name))
+方法如下：
+12345678//获取地址栏参数的值，支持中文function GetQueryString(name) &amp;#123;	var reg = new RegExp(&amp;quot;(^|&amp;amp;)&amp;quot; + name + &amp;quot;=([^&amp;amp;]*)(&amp;amp;|$)&amp;quot">
 
   
 
@@ -190,7 +193,8 @@
 
   <div class="article-content">
     
-      <p>本篇简单介绍如何从地址栏获取参数<br>方法如下：</p>
+      <p>本篇简单介绍如何从地址栏获取参数<br>传中文时：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">encodeURI(encodeURI(name))</div></pre></td></tr></table></figure></p>
+<p>方法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//获取地址栏参数的值，支持中文</div><div class="line">function GetQueryString(name) &#123;</div><div class="line">	var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;,&quot;i&quot;);</div><div class="line">	var r = window.location.search.substr(1).match(reg);</div><div class="line">	if (r != null)</div><div class="line">		return decodeURI(decodeURI(r[2]));</div><div class="line">	return null;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>解析：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;,&quot;i&quot;)</div></pre></td></tr></table></figure></p>
 <p>使用了正则表达式，”(^|&amp;)” 匹配开头或&amp;字符开头，([^&amp;]*)(&amp;|$)则为匹配内容包含&amp;且以&amp;结尾的内容，&amp;可以不存在，i表示执行对大小写不敏感的匹配。<br>若url参数为a=1&amp;b=2，执行GetQueryString(‘a’)时，正则匹配后r为一个数组[‘a=1&amp;’,’’,’1’,’&amp;’]<br>decodeURI()可以对encodeURI编码过的字符解码，两次解码是为了支持中文<br>获取参数方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var type = GetQueryString(&quot;type&quot;); //取回参数名为type的值</div></pre></td></tr></table></figure></p>
