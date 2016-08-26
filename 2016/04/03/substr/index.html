@@ -7,27 +7,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>localstorage存取json | superFan的github博客</title>
+  <title>js之substr与substring的区别 | superFan的github博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="前端,javascript,json," />
+    <meta name="keywords" content="前端,javascript,字符串," />
   
 
-  <meta name="description" content="本篇简单介绍如何从localstorage中存取json数据。将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串
-123456789101112var students = &amp;#123;		liyang: &amp;#123;			name: &amp;quot;liyang&amp;quot;,			age: 17		&amp;#125;,		lilei: &amp;#123;			na">
+  <meta name="description" content="本篇简单介绍js中截取字符串方法substr与substring的区别
+###substring(from,[,to])用于返回一个字符串的子串
+####用法1string.substring(from, to)
+第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束">
 <meta property="og:type" content="article">
-<meta property="og:title" content="localstorage存取json">
-<meta property="og:url" content="http://yoursite.com/2016/06/20/localstorage/index.html">
+<meta property="og:title" content="js之substr与substring的区别">
+<meta property="og:url" content="http://yoursite.com/2016/04/03/substr/index.html">
 <meta property="og:site_name" content="superFan的github博客">
-<meta property="og:description" content="本篇简单介绍如何从localstorage中存取json数据。将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串
-123456789101112var students = &amp;#123;		liyang: &amp;#123;			name: &amp;quot;liyang&amp;quot;,			age: 17		&amp;#125;,		lilei: &amp;#123;			na">
-<meta property="og:updated_time" content="2016-08-26T02:57:11.000Z">
+<meta property="og:description" content="本篇简单介绍js中截取字符串方法substr与substring的区别
+###substring(from,[,to])用于返回一个字符串的子串
+####用法1string.substring(from, to)
+第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束">
+<meta property="og:updated_time" content="2016-08-26T05:15:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="localstorage存取json">
-<meta name="twitter:description" content="本篇简单介绍如何从localstorage中存取json数据。将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串
-123456789101112var students = &amp;#123;		liyang: &amp;#123;			name: &amp;quot;liyang&amp;quot;,			age: 17		&amp;#125;,		lilei: &amp;#123;			na">
+<meta name="twitter:title" content="js之substr与substring的区别">
+<meta name="twitter:description" content="本篇简单介绍js中截取字符串方法substr与substring的区别
+###substring(from,[,to])用于返回一个字符串的子串
+####用法1string.substring(from, to)
+第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束">
 
   
 
@@ -153,14 +159,14 @@
 
 
 <div class="content content-post CENTER">
-   <article id="post-localstorage" class="article article-type-post" itemprop="blogPost">
+   <article id="post-substr" class="article article-type-post" itemprop="blogPost">
   <header class="article-header">
-    <h1 class="post-title">localstorage存取json</h1>
+    <h1 class="post-title">js之substr与substring的区别</h1>
 
     <div class="article-meta">
       <span>
         <i class="icon-calendar"></i>
-        <span>2016.06.20</span>
+        <span>2016.04.03</span>
       </span>
 
       
@@ -173,7 +179,7 @@
       
   <span class="article-category">
     <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/前端常见问题/">前端常见问题</a>
   </span>
 
 
@@ -181,7 +187,7 @@
       
         <span>
           <i class="icon-comment"></i>
-          <a href="github.com/L-superFan/2016/06/20/localstorage/#disqus_thread"></a>
+          <a href="github.com/L-superFan/2016/04/03/substr/#disqus_thread"></a>
         </span>
       
 
@@ -190,10 +196,13 @@
 
   <div class="article-content">
     
-      <p>本篇简单介绍如何从localstorage中存取json数据。<br>将json数据存入localstorage前，需要使用JSON.stringify将其转化成字符串</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var students = &#123;</div><div class="line">		liyang: &#123;</div><div class="line">			name: &quot;liyang&quot;,</div><div class="line">			age: 17</div><div class="line">		&#125;,</div><div class="line">		lilei: &#123;</div><div class="line">			name: &quot;lilei&quot;,</div><div class="line">			age: 18</div><div class="line">		&#125;</div><div class="line">	&#125; //要存储的JSON对象   </div><div class="line">students = JSON.stringify(students);//将JSON对象转化成字符串  </div><div class="line">localStorage.setItem(&quot;students&quot;,students);//用localStorage保存转化好的的字符串</div></pre></td></tr></table></figure>
-<p>从localstorage中获取数据字符串，使用JSON.parse将其转化成json</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var students = localStorage.getItem(&quot;students&quot;); //取回students变量</div><div class="line">students = JSON.parse(students);//把字符串转换成JSON对象</div></pre></td></tr></table></figure>
+      <p>本篇简单介绍js中截取字符串方法substr与substring的区别</p>
+<p>###substring(from,[,to])<br>用于返回一个字符串的子串</p>
+<p>####用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.substring(from, to)</div></pre></td></tr></table></figure></p>
+<p>第一个参数from指要截取的字符串开始的索引<br>第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）<br>注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abc&apos;;</div><div class="line">str.substring(1,2)//返回b</div></pre></td></tr></table></figure></p>
+<p>###substring(start,[,length])<br>用于返回一个字符串的子串</p>
+<p>####用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.substring(start, length)</div></pre></td></tr></table></figure></p>
+<p>第一个参数start指要截取的字符串开始的索引<br>第二个参数length指要截取的字符串长度（这个参数可以不加，默认取到最后）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abc&apos;;</div><div class="line">str.substr(1,2)//返回bc</div></pre></td></tr></table></figure></p>
 
     
   </div>
@@ -332,7 +341,7 @@
   <script>
     var disqus_shortname = 'forsigner';
     
-    var disqus_url = 'http://yoursite.com/2016/06/20/localstorage/';
+    var disqus_url = 'http://yoursite.com/2016/04/03/substr/';
     
     (function(){
       var dsq = document.createElement('script');
