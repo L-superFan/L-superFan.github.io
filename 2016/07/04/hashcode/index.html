@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>js随机生成hash值 | superFan的github博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="前端,javascript,hashcode," />
+  
+
+  <meta name="description" content="本篇简单介绍如何随机生成一个hashcode
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748//产生一个hash值，只有数字，规则和java的hashcode规则相同function hashCode(str) &amp;#123;    var h = 0;    var le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js随机生成hash值">
+<meta property="og:url" content="http://yoursite.com/2016/07/04/hashcode/index.html">
+<meta property="og:site_name" content="superFan的github博客">
+<meta property="og:description" content="本篇简单介绍如何随机生成一个hashcode
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748//产生一个hash值，只有数字，规则和java的hashcode规则相同function hashCode(str) &amp;#123;    var h = 0;    var le">
+<meta property="og:updated_time" content="2016-09-08T06:22:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js随机生成hash值">
+<meta name="twitter:description" content="本篇简单介绍如何随机生成一个hashcode
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748//产生一个hash值，只有数字，规则和java的hashcode规则相同function hashCode(str) &amp;#123;    var h = 0;    var le">
+
+  
+
+  
+
+  <link href="/css/styles.css?v=028c63b1" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-hashcode" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">js随机生成hash值</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2016.07.04</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>L-superFan</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="github.com/L-superFan/2016/07/04/hashcode/#disqus_thread"></a>
+        </span>
+      
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>本篇简单介绍如何随机生成一个hashcode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">//产生一个hash值，只有数字，规则和java的hashcode规则相同</div><div class="line">function hashCode(str) &#123;</div><div class="line">    var h = 0;</div><div class="line">    var len = str.length;</div><div class="line">    var t = 2147483648;</div><div class="line">    for (var i = 0; i &lt; len; i++) &#123;</div><div class="line">        h = 31 * h + str.charCodeAt(i);</div><div class="line">        if (h &gt; 2147483647) h %= t; //java int溢出则取模</div><div class="line">    &#125;</div><div class="line">    /*var t = -2147483648 * 2;</div><div class="line">     while (h &gt; 2147483647) &#123;</div><div class="line">     h += t</div><div class="line">     &#125;*/</div><div class="line">    return h;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//时间戳来自客户端，精确到毫秒，但仍旧有可能在在多线程下有并发，</div><div class="line">//尤其hash化后，毫秒数前面的几位都不变化，导致不同日期hash化的值有可能存在相同，</div><div class="line">//因此使用下面的随机数函数，在时间戳上加随机数，保证hash化的结果差异会比较大</div><div class="line">/*</div><div class="line"> ** randomWord 产生任意长度随机字母数字组合</div><div class="line"> ** randomFlag-是否任意长度 min-任意长度最小位[固定位数] max-任意长度最大位</div><div class="line"> ** 用法  randomWord(false,6);规定位数 flash</div><div class="line"> * 		randomWord(true,3，6);长度不定，true</div><div class="line"> * arr变量可以把其他字符加入，如以后需要小写字母，直接加入即可</div><div class="line"> */</div><div class="line">function randomWord(randomFlag, min, max) &#123;</div><div class="line">    var str = &quot;&quot;,</div><div class="line">        range = min,</div><div class="line">        arr = [&apos;0&apos;, &apos;1&apos;, &apos;2&apos;, &apos;3&apos;, &apos;4&apos;, &apos;5&apos;, &apos;6&apos;, &apos;7&apos;, &apos;8&apos;, &apos;9&apos;, &apos;A&apos;, &apos;B&apos;, &apos;C&apos;, &apos;D&apos;, &apos;E&apos;, &apos;F&apos;, &apos;G&apos;, &apos;H&apos;, &apos;I&apos;, &apos;J&apos;, &apos;K&apos;, &apos;L&apos;, &apos;M&apos;, &apos;N&apos;, &apos;O&apos;, &apos;P&apos;, &apos;Q&apos;, &apos;R&apos;, &apos;S&apos;, &apos;T&apos;, &apos;U&apos;, &apos;V&apos;, &apos;W&apos;, &apos;X&apos;, &apos;Y&apos;, &apos;Z&apos;];</div><div class="line">    // 随机产生</div><div class="line">    if (randomFlag) &#123;</div><div class="line">        range = Math.round(Math.random() * (max - min)) + min;</div><div class="line">    &#125;</div><div class="line">    for (var i = 0; i &lt; range; i++) &#123;</div><div class="line">        pos = Math.round(Math.random() * (arr.length - 1));</div><div class="line">        str += arr[pos];</div><div class="line">    &#125;</div><div class="line">    return str;</div><div class="line">&#125;</div><div class="line">//获取hashcode</div><div class="line">function gethashcode() &#123;</div><div class="line">    //定义一个时间戳，计算与1970年相差的毫秒数  用来获得唯一时间</div><div class="line">    var timestamp = (new Date()).valueOf();</div><div class="line">    var myRandom=randomWord(false,6);</div><div class="line">    var hashcode=hashCode(myRandom+timestamp.toString());</div><div class="line">    return hashcode;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    
+  </div>
+</article>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.png" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'forsigner';
+    
+    var disqus_url = 'http://yoursite.com/2016/07/04/hashcode/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
