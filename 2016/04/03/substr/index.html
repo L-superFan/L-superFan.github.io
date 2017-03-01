@@ -16,24 +16,24 @@
   
 
   <meta name="description" content="本篇简单介绍js中截取字符串方法substr与substring的区别
-###substring(from,[,to])用于返回一个字符串的子串
-####用法1string.substring(from, to)
-第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束">
+substring(from,[,to])用于返回一个字符串的子串
+用法1string.substring(from, to)
+第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束位置12var">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js之substr与substring的区别">
 <meta property="og:url" content="http://yoursite.com/2016/04/03/substr/index.html">
 <meta property="og:site_name" content="superFan的github博客">
 <meta property="og:description" content="本篇简单介绍js中截取字符串方法substr与substring的区别
-###substring(from,[,to])用于返回一个字符串的子串
-####用法1string.substring(from, to)
-第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束">
-<meta property="og:updated_time" content="2016-08-26T05:15:48.000Z">
+substring(from,[,to])用于返回一个字符串的子串
+用法1string.substring(from, to)
+第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束位置12var">
+<meta property="og:updated_time" content="2017-03-01T07:06:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js之substr与substring的区别">
 <meta name="twitter:description" content="本篇简单介绍js中截取字符串方法substr与substring的区别
-###substring(from,[,to])用于返回一个字符串的子串
-####用法1string.substring(from, to)
-第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束">
+substring(from,[,to])用于返回一个字符串的子串
+用法1string.substring(from, to)
+第一个参数from指要截取的字符串开始的索引第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束位置12var">
 
   
 
@@ -156,6 +156,11 @@
 </div>
 
 
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#substring-from-to"><span class="toc-text">substring(from,[,to])</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用法"><span class="toc-text">用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#substring-start-length"><span class="toc-text">substring(start,[,length])</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用法-1"><span class="toc-text">用法</span></a></li></ol></li></ol>
+  </div>
+
 
 
 <div class="content content-post CENTER">
@@ -197,11 +202,11 @@
   <div class="article-content">
     
       <p>本篇简单介绍js中截取字符串方法substr与substring的区别</p>
-<p>###substring(from,[,to])<br>用于返回一个字符串的子串</p>
-<p>####用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.substring(from, to)</div></pre></td></tr></table></figure></p>
+<h3 id="substring-from-to"><a href="#substring-from-to" class="headerlink" title="substring(from,[,to])"></a>substring(from,[,to])</h3><p>用于返回一个字符串的子串</p>
+<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.substring(from, to)</div></pre></td></tr></table></figure>
 <p>第一个参数from指要截取的字符串开始的索引<br>第二个参数to指要截取的字符串结束的索引（这个参数可以不加，默认取到最后）<br>注意，这个是左闭右开的，[from,to)，包括开始位置但不包括结束位置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abc&apos;;</div><div class="line">str.substring(1,2)//返回b</div></pre></td></tr></table></figure></p>
-<p>###substring(start,[,length])<br>用于返回一个字符串的子串</p>
-<p>####用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.substring(start, length)</div></pre></td></tr></table></figure></p>
+<h3 id="substring-start-length"><a href="#substring-start-length" class="headerlink" title="substring(start,[,length])"></a>substring(start,[,length])</h3><p>用于返回一个字符串的子串</p>
+<h4 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">string.substring(start, length)</div></pre></td></tr></table></figure>
 <p>第一个参数start指要截取的字符串开始的索引<br>第二个参数length指要截取的字符串长度（这个参数可以不加，默认取到最后）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &apos;abc&apos;;</div><div class="line">str.substr(1,2)//返回bc</div></pre></td></tr></table></figure></p>
 
     
@@ -215,15 +220,15 @@
     <div class="inner-donation">
       <span class="btn-donation">支持一下</span>
       <div class="donation-body">
-        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <div class="tip text-center">扫一扫，支持fsuperFan</div>
         <ul class="theme.donation.items.length">
         
           <li class="item">
-            <img src="/images/qr.jpeg" alt="">
+            <img src="/images/qr-wechat.jpeg" alt="">
           </li>
         
           <li class="item">
-            <img src="/images/qr.jpeg" alt="">
+            <img src="/images/qr-alipay.jpeg" alt="">
           </li>
         
         </ul>
@@ -339,7 +344,7 @@
   </section>
 
   <script>
-    var disqus_shortname = 'forsigner';
+    var disqus_shortname = 'Javasuperfan';
     
     var disqus_url = 'http://yoursite.com/2016/04/03/substr/';
     
@@ -352,7 +357,7 @@
     })();
   </script>
 
-  <script id="dsq-count-scr" src="//forsigner.disqus.com/count.js" async></script>
+  <script id="dsq-count-scr" src="//Javasuperfan.disqus.com/count.js" async></script>
 
 
 

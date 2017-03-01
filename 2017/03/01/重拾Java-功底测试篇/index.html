@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>重拾Java--功底篇之String | superFan的github博客</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="java," />
+  
+
+  <meta name="description" content="今天看书看到这样一段代码，感觉十分有趣，在这放一下12345private static void test()&amp;#123;	String a = &amp;quot;a&amp;quot; + &amp;quot;b&amp;quot;;	String b = &amp;quot;ab&amp;quot;;	System.out.println(a == b);&amp;#125;
+呐尼，这边怎么用了”==”，不是应该用equals()么？那么其实，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="重拾Java--功底篇之String">
+<meta property="og:url" content="http://yoursite.com/2017/03/01/重拾Java-功底测试篇/index.html">
+<meta property="og:site_name" content="superFan的github博客">
+<meta property="og:description" content="今天看书看到这样一段代码，感觉十分有趣，在这放一下12345private static void test()&amp;#123;	String a = &amp;quot;a&amp;quot; + &amp;quot;b&amp;quot;;	String b = &amp;quot;ab&amp;quot;;	System.out.println(a == b);&amp;#125;
+呐尼，这边怎么用了”==”，不是应该用equals()么？那么其实，">
+<meta property="og:updated_time" content="2017-03-01T07:46:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="重拾Java--功底篇之String">
+<meta name="twitter:description" content="今天看书看到这样一段代码，感觉十分有趣，在这放一下12345private static void test()&amp;#123;	String a = &amp;quot;a&amp;quot; + &amp;quot;b&amp;quot;;	String b = &amp;quot;ab&amp;quot;;	System.out.println(a == b);&amp;#125;
+呐尼，这边怎么用了”==”，不是应该用equals()么？那么其实，">
+
+  
+
+  
+
+  <link href="/css/styles.css?v=028c63b1" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+</head>
+
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/atom.xml"
+            target="_blank"
+            >
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">==</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#equals"><span class="toc-text">equals()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hashCode"><span class="toc-text">hashCode()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译时优化"><span class="toc-text">编译时优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String的”-”操作"><span class="toc-text">String的”+”操作</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-重拾Java-功底测试篇" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">重拾Java--功底篇之String</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2017.03.01</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>L-superFan</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/重拾java/">重拾java</a>
+  </span>
+
+
+
+      
+        <span>
+          <i class="icon-comment"></i>
+          <a href="github.com/L-superFan/2017/03/01/重拾Java-功底测试篇/#disqus_thread"></a>
+        </span>
+      
+
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>今天看书看到这样一段代码，感觉十分有趣，在这放一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">private static void test()&#123;</div><div class="line">	String a = &quot;a&quot; + &quot;b&quot;;</div><div class="line">	String b = &quot;ab&quot;;</div><div class="line">	System.out.println(a == b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>呐尼，这边怎么用了”==”，不是应该用equals()么？<br>那么其实，这段代码运行的最终结果是<em>true</em>，如果你了解原理，这篇文章完全可以跳过，如果是猜的小伙伴，有兴趣可以继续往下看一看</p>
+<blockquote>
+<p>想了解为什么会是true，需要了解以下几个知识点：<br>1.“==”是做什么的？<br>2.equals()呢？<br>3.a和b在内存中是什么样存在的？<br>4.编译时的优化方案</p>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title="=="></a>==</h2><p>首先，”==”在Java中，原始类型如byte、short、int、long、float、double、boolean、char都是直接比较它们的值是否相等，这个不用多说。<br>但如果是引用类型的对象，那么比较的其实是两个对象的地址。</p>
+<h2 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h2><p>equals()方法在jdk源码的Object类中被定义，它可以被重写。<br>来看下equals()在Object类中的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">public boolean equals(Object obj) &#123;</div><div class="line">        return (this == obj);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>原来源码的原始实现用的就是==比较两个对象的地址是否一致，so easy。那么再来看下String类中的equals方法是怎么样的呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">public boolean equals(Object anObject) &#123;</div><div class="line">        if (this == anObject) &#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line">        if (anObject instanceof String) &#123;</div><div class="line">            String anotherString = (String)anObject;</div><div class="line">            int n = value.length;</div><div class="line">            if (n == anotherString.value.length) &#123;</div><div class="line">                char v1[] = value;</div><div class="line">                char v2[] = anotherString.value;</div><div class="line">                int i = 0;</div><div class="line">                while (n-- != 0) &#123;</div><div class="line">                    if (v1[i] != v2[i])</div><div class="line">                        return false;</div><div class="line">                    i++;</div><div class="line">                &#125;</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        return false;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>大致看一下代码，分为如下几个步骤：</p>
+<ol>
+<li>先判断两个对象地址是否相同，如果地址相同，则返回true</li>
+<li>再判断传入对象是否为String，若不是则返回false</li>
+<li>判断传入的String长度与当前String是否一致，若不一致则返回false</li>
+<li>循坏匹配两个String的每个字符是否相等，若不相等，返回false</li>
+<li>直到所有字符比较完成，返回true<br>好了，现在理解了String类中的equals如何工作了</li>
+</ol>
+<h2 id="hashCode"><a href="#hashCode" class="headerlink" title="hashCode()"></a>hashCode()</h2><p>讲到equals()不得不提一下hashCode()，这是一个Object类提供的native(本地)方法，作用是获取对象的hashCode,它的返回值与System.identityHashCode(Obj)一致。是一组由对象头部<em>一部分</em>二进制位组成的数字，用于标识该对象，但绝不等价于地址。这个hashCode主要在HashMap、HashSet等集合类中的对象写入和查找等算法中用于算法快速定位数据之用。<br>Ps：在JDK1.7中，如果Hash相关的集合的key是String类型，不再使用hashCode，而是用一种hash32属性。</p>
+<h2 id="编译时优化"><a href="#编译时优化" class="headerlink" title="编译时优化"></a>编译时优化</h2><p>JVM有时会在编译时对代码进行自动优化，如针对代码<code>String a = &quot;a&quot; + &quot;b&quot;</code>，因为”a”和”b”都是常量，他们都储存在常量池中，在编译时其实已经转化成了<code>String a = &quot;ab&quot;</code>，无须运行时再计算，同样的道理还有<code>int i = 1 + 3</code>，编译时自动优化为<code>int i = 4</code>。<br>当然编译器做的优化远远不止这些，这边只是稍微提及一下。</p>
+<h2 id="String的”-”操作"><a href="#String的”-”操作" class="headerlink" title="String的”+”操作"></a>String的”+”操作</h2><p>这边稍微瞄一眼String的”+”操作的工作原理，例如代码<code>String b = a + &quot;b&quot;</code>，其中a是一个String类型的字符串，因为a是一个变量，因此这段代码编译好之后是这个样子滴：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">StringBuilder temp = new StringBuilder();</div><div class="line">temp.append(a).append(&quot;b&quot;);</div><div class="line">String b = temp.toString()；</div></pre></td></tr></table></figure></p>
+<p>关于StringBuilder类的append源码在这就不分析了。（源码什么的 还是很有趣的！）<br>这边提一个<code>intern()</code>方法，这个方法的源码注释是这个样子的</p>
+<blockquote>
+<pre><code>* @return  a string that has the same contents as this string, but is
+  *          guaranteed to be from a pool of unique strings.
+</code></pre><p>大致意思就是，返回一个与当前字符串内容相同，且在Perm Gen(永久代，即内存的永久保存区域)中保证全局唯一的字符串。<br>wtf，这是什么意思呢？<br>首先，Perm Gen是常量池中的一块，它对于同一个值的字符串保证全局唯一。如果一个字符串调用intern()，JVM首先会去常量池中通过equals()选择等值的String，若存在，返回常量池中这个String的地址，如果未找到，会创建等值的字符串，再返回新创建空间的地址。</p>
+</blockquote>
+<p>到这里，有点小累，来个例题放松放松吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">public class test &#123;</div><div class="line">    public static String getA()&#123;return &quot;a&quot;;&#125;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        String a = &quot;a&quot;;</div><div class="line">        final String _a = &quot;a&quot;;</div><div class="line">        String b = a + &quot;b&quot;;</div><div class="line">        String c = _a + &quot;b&quot;;</div><div class="line">        String d = getA() + &quot;b&quot;;</div><div class="line">        String e = new String(b);</div><div class="line"></div><div class="line">        String compare = &quot;ab&quot;;</div><div class="line">        System.out.println(b == compare);</div><div class="line">        System.out.println(c == compare);</div><div class="line">        System.out.println(d == compare);</div><div class="line">        System.out.println(e == compare);</div><div class="line">        System.out.println(d.intern() == compare);</div><div class="line">        System.out.println(e.intern() == compare);</div><div class="line">        System.out.println(e.intern() == d.intern());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>答案是:<code>false true false false true true true</code></p>
+
+    
+  </div>
+</article>
+
+</div>
+
+
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持fsuperFan</div>
+        <ul class="theme.donation.items.length">
+        
+          <li class="item">
+            <img src="/images/qr-wechat.jpeg" alt="">
+          </li>
+        
+          <li class="item">
+            <img src="/images/qr-alipay.jpeg" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/atom.xml"
+              target="_blank"
+              >
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+  <section class="disqus-comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <script>
+    var disqus_shortname = 'Javasuperfan';
+    
+    var disqus_url = 'http://yoursite.com/2017/03/01/重拾Java-功底测试篇/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+  <script id="dsq-count-scr" src="//Javasuperfan.disqus.com/count.js" async></script>
+
+
+
+    
+
+
+
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+</body>
+</html>
